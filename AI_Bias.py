@@ -1,5 +1,4 @@
 import numpy as np
-import math
 
 
 def bias(result):  # slenkstine aktyvacijos funkcija
@@ -9,15 +8,10 @@ def bias(result):  # slenkstine aktyvacijos funkcija
         return 0
 
 
-def sigmoid(result):
-    return 1/1 + math.exp(-result)
-
-
 k = -0.2  # slenkstis
 
 w = np.linspace(-5, 5, 101)
 
-print(w[5])
 results_w_1 = np.array([])
 results_w_2 = np.array([])
 for i in w:
@@ -117,3 +111,5 @@ for i in results_w_one:
                 results_weight = np.append(results_weight, [i, j])
 
 print(results_weight)
+
+# 0.6 0.3 -0.2

@@ -5,17 +5,17 @@ def sigmoid(result):
     return 1/(1 + np.exp(-result))
 
 
-k = -0.2  # slenkstis
+k = -0.1  # slenkstis
 
-w = np.linspace(-5, 5, 101)
+w = np.linspace(-2, 2, 41)
 
 results_w_1 = np.array([])
 results_w_2 = np.array([])
 for i in w:
     for j in w:
         y = (-0.2*i) + (0.5*j) + k
-        result = bias(y)
-        if result < 0:
+        result = sigmoid(y)
+        if result < 0.5:
             results_w_1 = np.append(results_w_1, [i, j])
 
 n = results_w_1.size
@@ -29,8 +29,8 @@ results_w_2 = np.array([])
 for i in w:
     for j in w:
         y = (0.2 * i) + (-0.5*j) + k
-        result = bias(y)
-        if result < 0:
+        result = sigmoid(y)
+        if result < 0.5:
             results_w_2 = np.append(results_w_2, [i, j])
 
 n = results_w_2.size
@@ -60,8 +60,8 @@ results_w_2 = np.array([])
 for i in w:
     for j in w:
         y = (0.8 * i) + (-0.8*j) + k
-        result = bias(y)
-        if result >= 0:
+        result = sigmoid(y)
+        if result >= 0.5:
             results_w_1 = np.append(results_w_1, [i, j])
 
 n = results_w_1.size
@@ -75,8 +75,8 @@ results_w_2 = np.array([])
 for i in w:
     for j in w:
         y = (0.8 * i) + (0.8*j) + k
-        result = bias(y)
-        if result >= 0:
+        result = sigmoid(y)
+        if result >= 0.5:
             results_w_2 = np.append(results_w_2, [i, j])
 
 n = results_w_2.size
@@ -108,3 +108,6 @@ for i in results_w_one:
                 results_weight = np.append(results_weight, [i, j])
 
 print(results_weight)
+
+# 0.6 0.4 -0.1
+# 0.6 0.3
