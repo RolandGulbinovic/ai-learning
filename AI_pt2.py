@@ -1,16 +1,29 @@
 import numpy as np
-
-arr = np.array([0.2, -0.5])
-
-slope = -0.1
+import math
 
 
-w = np.arange(-10, 10, 0.1)
+def bias(result):  # slenkstine aktyvacijos funkcija
+    if result >= 0:
+        return 1
+    if result < 0:
+        return 0
+
+
+def sigmoid(result):
+    return 1/1 + math.exp(-result)
+
+
+k = -0.2  # slenkstis
+
+w = np.linspace(-5, 5, 101)
+
+print(w[5])
 results_w_1 = np.array([])
 results_w_2 = np.array([])
 for i in w:
     for j in w:
-        result = -0.2 * i + 0.5*j + slope
+        y = (-0.2*i) + (0.5*j) + k
+        result = bias(y)
         if result < 0:
             results_w_1 = np.append(results_w_1, [i, j])
 
@@ -24,7 +37,8 @@ results_w_1 = results_w_1.reshape(n, 2)
 results_w_2 = np.array([])
 for i in w:
     for j in w:
-        result = 0.2 * i + -0.5*j + slope
+        y = (0.2 * i) + (-0.5*j) + k
+        result = bias(y)
         if result < 0:
             results_w_2 = np.append(results_w_2, [i, j])
 
@@ -46,7 +60,7 @@ n = results_w.size
 n = int(n/2)
 results_w_one = results_w.reshape(n, 2)
 
-
+print(results_w_one)
 ###############################################################
 
 
@@ -54,7 +68,8 @@ results_w_1 = np.array([])
 results_w_2 = np.array([])
 for i in w:
     for j in w:
-        result = 0.8 * i + -0.8*j + slope
+        y = (0.8 * i) + (-0.8*j) + k
+        result = bias(y)
         if result >= 0:
             results_w_1 = np.append(results_w_1, [i, j])
 
@@ -68,7 +83,8 @@ results_w_1 = results_w_1.reshape(n, 2)
 results_w_2 = np.array([])
 for i in w:
     for j in w:
-        result = -0.8 * i + 0.8*j + slope
+        y = (0.8 * i) + (0.8*j) + k
+        result = bias(y)
         if result >= 0:
             results_w_2 = np.append(results_w_2, [i, j])
 
@@ -90,6 +106,8 @@ n = results_w.size
 n = int(n/2)
 
 results_w_two = results_w.reshape(n, 2)
+
+print(results_w_two)
 
 results_weight = np.array([])
 for i in results_w_one:
