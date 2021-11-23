@@ -17,6 +17,9 @@ Labels are 0 or 1
 Create a program that teaches one neuron (perceptron) for classification tasks.
 **TESTING IS MANDATORY**, for this the data set should be split into a training and testing set. The ratio of the sets should be either 80:20 or 70:30
 
+probably use sklearn?
+
+
 You should be able to read the data from file
 You should be able to change parameters. For example learning rate, iteration number
 There should be two activation function: BIAS and Sigmoid
