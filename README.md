@@ -1,2 +1,7 @@
-#AI- LEARNING
-lags
+# AI- LEARNING
+
+## Picture classification using convoluted neural network
+
+## Data
+
+
